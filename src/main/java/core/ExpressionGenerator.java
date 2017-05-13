@@ -27,7 +27,7 @@ public class ExpressionGenerator {
         this.expressionRule = Objects.requireNonNull(expressionRule);
     }
 
-    public static Expression getExpression(String expressionString, ExpressionRule expressionRule) throws InvalidObjectException {
+    public static Expression generateExpression(String expressionString, ExpressionRule expressionRule) throws InvalidObjectException {
         if (!validateExpression(expressionString))
             throw new InvalidObjectException("Expression Invalid");
         return new ExpressionGenerator(expressionString, expressionRule).generateExpression();
@@ -38,7 +38,7 @@ public class ExpressionGenerator {
         return matcher.matches();
     }
 
-    public Expression generateExpression() {
+    private Expression generateExpression() {
         String[] expressionArray = expressionString.split("[+/*-]");
 
         Expression[] terminals = new Expression[expressionArray.length];
