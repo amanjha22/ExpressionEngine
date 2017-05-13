@@ -5,7 +5,7 @@ import nonterminals.MinusExpression;
 import nonterminals.MultiplyExpression;
 import nonterminals.PlusExpression;
 import terminals.TerminalExpression;
-import utils.ExpressionRule;
+import utils.EvaluationRule;
 
 import java.io.InvalidObjectException;
 import java.util.Objects;
@@ -20,17 +20,17 @@ public class ExpressionGenerator {
     private static final String EXPRESSION_REGEX = "^(\\d+(\\.\\d+)?([-+/*](\\d)*(\\.\\d+)?)*)";
     private static final Pattern pattern = Pattern.compile(EXPRESSION_REGEX);
     private String expressionString;
-    private ExpressionRule expressionRule;
+    private EvaluationRule evaluationRule;
 
-    private ExpressionGenerator(String expressionString, ExpressionRule expressionRule) {
+    private ExpressionGenerator(String expressionString, EvaluationRule evaluationRule) {
         this.expressionString = Objects.requireNonNull(expressionString);
-        this.expressionRule = Objects.requireNonNull(expressionRule);
+        this.evaluationRule = Objects.requireNonNull(evaluationRule);
     }
 
-    public static Expression generateExpression(String expressionString, ExpressionRule expressionRule) throws InvalidObjectException {
+    public static Expression generateExpression(String expressionString, EvaluationRule evaluationRule) throws InvalidObjectException {
         if (!validateExpression(expressionString))
             throw new InvalidObjectException("Expression Invalid");
-        return new ExpressionGenerator(expressionString, expressionRule).generateExpression();
+        return new ExpressionGenerator(expressionString, evaluationRule).generateExpression();
     }
 
     private static boolean validateExpression(String expressionString) {
@@ -54,7 +54,7 @@ public class ExpressionGenerator {
                 operators[k++] = x;
         }
 
-        switch (this.expressionRule) {
+        switch (this.evaluationRule) {
             case LEFT_EVALUATION:
                 return generateLeftEvaluationExpression(terminals, operators);
             case RIGHT_EVALUATION:
