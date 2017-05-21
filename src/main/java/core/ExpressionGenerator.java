@@ -4,6 +4,7 @@ import nonterminals.DivideExpression;
 import nonterminals.MinusExpression;
 import nonterminals.MultiplyExpression;
 import nonterminals.PlusExpression;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import terminals.TerminalExpression;
 import utils.EvaluationRule;
 
@@ -67,7 +68,7 @@ public class ExpressionGenerator {
     }
 
     private Expression generateBodmasExpression(Expression[] terminals, char[] operators) {
-        return null;
+        throw new NotImplementedException();
     }
 
     private Expression generateRightEvaluationExpression(Expression[] terminals, char[] operators) {
