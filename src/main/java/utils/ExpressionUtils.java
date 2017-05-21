@@ -4,7 +4,7 @@ package utils;
  * @author Aman
  */
 public interface ExpressionUtils {
-    public static Number evaluateBinaryExpression(Number num1, Number num2, Operands operand) {
+    public static Number evaluateBinaryExpression(Number num1, Number num2, Operators operand) {
         switch (operand) {
             case ADDITION:
                 return num1.doubleValue() + num2.doubleValue();
@@ -20,7 +20,7 @@ public interface ExpressionUtils {
         }
     }
 
-    public static Number evaluateUnaryExpression(Number number, Operands operand) {
+    public static Number evaluateUnaryExpression(Number number, Operators operand) {
         switch (operand) {
             case SINE:
                 return Math.sin(number.doubleValue());

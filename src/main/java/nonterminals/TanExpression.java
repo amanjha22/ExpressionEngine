@@ -2,7 +2,7 @@ package nonterminals;
 
 import core.Expression;
 import utils.ExpressionUtils;
-import utils.Operands;
+import utils.Operators;
 
 /**
  * @author Aman
@@ -17,6 +17,6 @@ public class TanExpression extends UnaryExpression {
     public Number evaluateExpression() {
         Number number = this.getExpression().evaluateExpression();
 
-        return ExpressionUtils.evaluateUnaryExpression(number, Operands.TAN);
+        return ExpressionUtils.evaluateUnaryExpression(number, Operators.TAN);
     }
 }

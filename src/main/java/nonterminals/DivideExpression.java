@@ -3,7 +3,7 @@ package nonterminals;
 
 import core.Expression;
 import utils.ExpressionUtils;
-import utils.Operands;
+import utils.Operators;
 
 /**
  * @author Aman
@@ -20,6 +20,6 @@ public class DivideExpression extends BinaryExpression {
         Number num1 = this.getExpression1().evaluateExpression();
         Number num2 = this.getExpression2().evaluateExpression();
 
-        return ExpressionUtils.evaluateBinaryExpression(num1, num2, Operands.DIVISION);
+        return ExpressionUtils.evaluateBinaryExpression(num1, num2, Operators.DIVISION);
     }
 }

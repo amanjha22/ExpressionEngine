@@ -23,6 +23,7 @@ public class ExpressionGenerator {
     private String expressionString;
     private EvaluationRule evaluationRule;
 
+
     private ExpressionGenerator(String expressionString, EvaluationRule evaluationRule) {
         this.expressionString = Objects.requireNonNull(expressionString);
         this.evaluationRule = Objects.requireNonNull(evaluationRule);
@@ -68,6 +69,9 @@ public class ExpressionGenerator {
     }
 
     private Expression generateBodmasExpression(Expression[] terminals, char[] operators) {
+
+
+
         throw new NotImplementedException();
     }
 
