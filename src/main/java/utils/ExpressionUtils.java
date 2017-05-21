@@ -25,7 +25,7 @@ public interface ExpressionUtils {
             case SINE:
                 return Math.sin(number.doubleValue());
             case COSINE:
-                return Math.sin(number.doubleValue());
+                return Math.cos(number.doubleValue());
             case TAN:
                 return Math.tan(number.doubleValue());
             default:

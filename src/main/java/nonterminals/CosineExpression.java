@@ -17,6 +17,6 @@ public class CosineExpression extends UnaryExpression {
     public Number evaluateExpression() {
         Number number = this.getExpression().evaluateExpression();
 
-        return ExpressionUtils.evaluateUnaryExpression(number, Operands.SINE);
+        return ExpressionUtils.evaluateUnaryExpression(number, Operands.COSINE);
     }
 }
