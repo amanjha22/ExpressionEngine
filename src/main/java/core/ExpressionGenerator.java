@@ -9,6 +9,9 @@ import terminals.TerminalExpression;
 import utils.EvaluationRule;
 
 import java.io.InvalidObjectException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -69,10 +72,30 @@ public class ExpressionGenerator {
     }
 
     private Expression generateBodmasExpression(Expression[] terminals, char[] operators) {
+        List<Expression> expressions = Arrays.asList(terminals);
+        List<Character> operatorList= new ArrayList<>();
+        for(char op :operators){
+            operatorList.add(op);
+        }
 
+        char[] supportedOps= {'/','*','+','-'};
+        int index;
+        for(char op : supportedOps) {
+            do {
+                index = operatorList.indexOf(op);
+                if(index!=-1){
+                    Expression exp1 =expressions.get(index);
+                    Expression exp2= expressions.get(index+1);
 
+                    expressions.remove(index);
+                    expressions.remove(index+1);
+                    operatorList.remove(index);
 
-        throw new NotImplementedException();
+                    expressions.add(index,getExpressionByOperator(exp1,exp2,op));
+                }
+            } while (index != -1);
+        }
+        return expressions.get(0);
     }
 
     private Expression generateRightEvaluationExpression(Expression[] terminals, char[] operators) {
