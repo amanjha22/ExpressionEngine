@@ -19,7 +19,7 @@
         <repository>
 			<id>github</id>
 			<name>github-packages</name>
-			<url>https://maven.pkg.github.com/amnjha</url>
+			<url>https://maven.pkg.github.com/amnjha/ExpressionEngine</url>
 		</repository>
     </distributionManagement>
 
